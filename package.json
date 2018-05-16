@@ -1,0 +1,19 @@
+{
+  "name": "wineflix",
+  "version": "1.0.0",
+  "description": "Wine Movie pairing app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Classy-Gazelles/Wineflix.git"
+  },
+  "author": "Classy Gazelles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Classy-Gazelles/Wineflix/issues"
+  },
+  "homepage": "https://github.com/Classy-Gazelles/Wineflix#readme"
+}
