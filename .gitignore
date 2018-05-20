@@ -32,4 +32,8 @@ bower_components/
 .env
 
 #webpack files
-client/dist/bundle.js
+client/dist/*
+!client/dist/index.html
+
+#DS_Store banish
+.DS_Store
