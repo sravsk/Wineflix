@@ -31,9 +31,5 @@ bower_components/
 # dotenv environment variables file
 .env
 
-#webpack files
-client/dist/*
-!client/dist/index.html
-
 #DS_Store banish
-.DS_Store
+client/.DS_Store
