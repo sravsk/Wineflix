@@ -1,12 +1,12 @@
 # Project Name
 
-> Pithy project description
+> Wineflix intelligently recommends pairings of movies and wine. Pairing a wine with traits that correspond to the content of a film adds a fun, full-sensory experience to a popular pastime, and encourages the user to broaden their horizons as both a wine drinker and a moviegoer.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Zoey Ikemoto
+  - __Scrum Master__: Stephanie Taylor
+  - __Software Engineering__: Sravanthi Karanam, Neiman Chen, Samir Habbu
 
 ## Table of Contents
 
@@ -24,11 +24,9 @@
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node.js
+- Express
+- React
 
 ## Development
 
