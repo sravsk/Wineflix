@@ -18,9 +18,9 @@
 1. [Team](#team)
 1. [Contributing](#contributing)
 
-## Usage
+<!-- ## Usage
 
-> Some usage instructions
+> Some usage instructions -->
 
 ## Requirements
 
@@ -35,9 +35,7 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
