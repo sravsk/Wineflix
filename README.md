@@ -19,7 +19,6 @@
 1. [Contributing](#contributing)
 
 <!-- ## Usage
-
 > Some usage instructions -->
 
 ## Requirements
@@ -35,6 +34,7 @@
 From within the root directory:
 
 ```sh
+
 npm install
 ```
 
