@@ -1,10 +1,14 @@
 import React from 'react';
+import Wines from './Wines.jsx';
+import { Grid } from 'react-bootstrap';
 
 const Content = (props) => {
   return (
     <div>
-      <div className="wine-block">Find a Wine</div>
-      <div className="movie-block">Find a Movie</div>
+      <Grid>
+        <Wines/>
+        <div className="movie-block">Find a Movie</div>
+      </Grid>
     </div>
     )
 }
