@@ -1,5 +1,6 @@
 import React from 'react';
 import Wines from './Wines.jsx';
+import Movies from './Movies.jsx';
 import { Grid } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -15,6 +16,13 @@ const Content = (props) => {
             </Link>
           </div>
         </Grid>
+    <div>
+      <Grid>
+        <Wines />
+        <Movies />
+      </Grid>
+    </div>
+
     )
 }
 
