@@ -1,0 +1,40 @@
+.img-logo {
+  width: 66%;
+}
+
+.navbar {
+  min-height : 120px;
+}
+
+.pull-right {
+    margin-right: 50px;
+}
+
+.content{
+  min-height : 300px;
+}
+
+.wine-block{
+  width : 200px;
+  float : left;
+}
+
+.fnd-wine-button {
+  height: 200px;
+  width: 200px;
+  background-color: #8d375d;
+}
+
+.navbar {
+  background-color : #8d375d;
+ }
+
+ .header .navbar-default a {
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.wine-block span {
+  font-size: 18px;
+  color: #fff;
+ }

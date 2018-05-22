@@ -1,13 +1,14 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
+
 const Header = (props) => {
   return (
     <Navbar>
      <Navbar.Header>
           <Navbar.Brand>
             <a href="/">
-              <img className="img-logo" src="./assets/classygazelles_v1.png"/>
+              <img className="img-logo" src={require ('../assets/classygazelles_small.png')}/>
             </a>
           </Navbar.Brand>
         </Navbar.Header>

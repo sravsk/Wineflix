@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Content from './components/Content.jsx';
+import css from './styles/style.css';
 
 class App extends React.Component {
   constructor(props) {
