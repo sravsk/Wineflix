@@ -5,16 +5,10 @@ class MoviesPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-    };
-  }
-
-  componentDidMount() {
-    if (this.props.url !== '') {
-      this.getMovies();
-      this.setState({_isMounted: true});
+      movies: []
     }
   }
+
 
   // performSearch(e) {
   //   var val = $('.Search input').val();
@@ -38,13 +32,23 @@ class MoviesPage extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.getMovies();
+  }
 
   render() {
+
     return (
       <div>
         <Search />
         <div className="container" style={{display: 'flex'}}>
-          <div className="movie-name"></div>
+          <div className="movie-name">
+            { this.state.movies.map((movie, i) => {
+              <div className="movietitle" key={i}>
+                <div>{movie.title}</div>
+              </div>
+            })}
+          </div>
         </div>
         <button onClick={() => console.log('click', this.state.data)}></button>
       </div>
