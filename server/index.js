@@ -13,6 +13,14 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 
+
+app.get('*', function(req, res) {
+ // console.log('serving default route')
+ res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+});
+
+
+
 app.listen(3000, () => {
   console.log('listening on port 3000');
 });
