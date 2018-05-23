@@ -8,15 +8,20 @@ let wineSchema = mongoose.Schema({
 let Wine = mongoose.model('Wine', wineSchema);
 
 let movieSchema = mongoose.Schema({
-
+  id: Number,
+  title: String,
+  popularity: Number,
+  vote_avg: Number,
+  vote_count: Number,
+  overview: String,
+  poster_path: String,
+  backdrop_path: String
 })
 
 let Movie = mongoose.model('Movie', movieSchema);
 
-let save = (/* TODO */) => {
-  // TODO: Your code here
-  // This function should save a repo or repos to
-  // the MongoDB
+let save = () => {
+
 }
 
 module.exports.save = save;
