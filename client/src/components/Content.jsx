@@ -16,13 +16,6 @@ const Content = (props) => {
             </Link>
           </div>
         </Grid>
-    <div>
-      <Grid>
-        <Wines />
-        <Movies />
-      </Grid>
-    </div>
-
     )
 }
 

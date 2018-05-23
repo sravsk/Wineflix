@@ -5,8 +5,6 @@ const Wines = (props) => {
   return(
     <div className="searchbox">
 
-    <div className="wine-block">
-      <Button className="fnd-wine-button"><span>Find a Wine</span></Button>
     </div>
   )
 }
