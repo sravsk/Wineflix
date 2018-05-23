@@ -23,6 +23,7 @@ app.get('/winesFetcher', (req, res) => {
   });
 })
 
+
 app.get('*', function(req, res) {
  // console.log('serving default route')
  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
