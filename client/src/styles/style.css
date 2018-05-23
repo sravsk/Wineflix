@@ -10,16 +10,27 @@
     margin-right: 50px;
 }
 
-.content{
+.content {
   min-height : 300px;
 }
 
-.wine-block{
+.wine-block {
   width : 200px;
-  float : left;
+  float : right;
 }
 
 .fnd-wine-button {
+  height: 200px;
+  width: 200px;
+  background-color: #8d375d;
+}
+
+.movie-block {
+  width: 200px;
+  float: left;
+}
+
+.fnd-movie-button {
   height: 200px;
   width: 200px;
   background-color: #8d375d;
@@ -38,3 +49,8 @@
   font-size: 18px;
   color: #fff;
  }
+
+.movie-block span {
+  font-size: 18px;
+  color: #fff;
+}
