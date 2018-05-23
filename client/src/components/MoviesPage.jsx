@@ -5,7 +5,8 @@ class MoviesPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      mounted: false
     }
   }
 
@@ -24,33 +25,49 @@ class MoviesPage extends React.Component {
     })
     .then((data) => {
       this.setState({
-        data: data
+        movies: data
       })
+    })
+    .then(() => {
+      this.setState({mounted: true});
     })
     .catch((err) => {
       console.log('err', err);
     })
   }
-
+  // try other life cycle methods
   componentDidMount() {
     this.getMovies();
   }
 
+  // try conditional rendering
   render() {
+    // if (this.state.mounted) {
+    //   var titles = this.state.movies.results.map((movie, i) => {
+    //     return(
+    //
+    //     )
+    //   })
+    // } else {
+    //   var titles = 'not working'
+    // }
 
     return (
-      <div>
-        <Search />
-        <div className="container" style={{display: 'flex'}}>
-          <div className="movie-name">
-            { this.state.movies.map((movie, i) => {
-              <div className="movietitle" key={i}>
-                <div>{movie.title}</div>
-              </div>
-            })}
-          </div>
+      <div className="container">
+        <div className="movie-name" >
+          {
+            this.state.mounted
+
+            ? this.state.movies.results.map((movie, i) => {
+                return(
+                  <div key={i} className="movietitle">{movie.title}</div>
+                )
+              })
+
+            : <div>broken</div>
+          }
         </div>
-        <button onClick={() => console.log('click', this.state.data)}></button>
+        <button onClick={() => console.log('click', this.state.movies.results[0].title)}></button>
       </div>
     )
   }
