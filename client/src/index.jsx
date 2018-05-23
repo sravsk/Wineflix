@@ -7,6 +7,8 @@ import Content from './components/Content.jsx';
 import Wines from './components/Wines.jsx';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import css from './styles/style.css';
+import MoviesPage from './components/MoviesPage.jsx';
+
 
 
 
@@ -26,8 +28,11 @@ class App extends React.Component {
            </Switch>
           </Router>
           <div className="footer"><Footer/></div>
+        <div className="content"><Content/></div>
+        <MoviesPage />
+        <div className="footer"><Footer/></div>
       </div>
-      )
+    )
   }
 }
 
