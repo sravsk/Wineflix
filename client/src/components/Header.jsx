@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
+const logo = require ('../assets/classygazelles_small.png');
 
 const Header = (props) => {
   return (
@@ -8,7 +9,7 @@ const Header = (props) => {
      <Navbar.Header>
           <Navbar.Brand>
             <a href="/">
-              <img className="img-logo" src={require ('../assets/classygazelles_small.png')}/>
+              <img className="img-logo" src={logo}/>
             </a>
           </Navbar.Brand>
         </Navbar.Header>
