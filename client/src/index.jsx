@@ -27,7 +27,7 @@ class App extends React.Component {
           </Router>
           <div className="footer"><Footer/></div>
       </div>
-      )
+    )
   }
 }
 

@@ -6,7 +6,7 @@ const Wines = (props) => {
     <div className="searchbox">
 
     </div>
-    )
+  )
 }
 
 export default Wines;
