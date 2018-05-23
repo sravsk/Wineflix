@@ -86,3 +86,23 @@
   color: #fff;
 }
 
+.search-wrapper {
+  text-align : center;
+  margin-bottom : 50px;
+}
+
+.input-search {
+    align-self: center;
+    border: none;
+    border-radius: 20px;
+    background-size: 15px 15px;
+    color: #545454;
+    font-weight: 300;
+    padding-left: 32px;
+    height: 40px;
+    font-size: 18px;
+    outline: none;
+    width: 500px;
+    border: 1px solid #8d375d;
+}
+
