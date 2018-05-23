@@ -55,7 +55,14 @@ let saveWines =  (allwines, cb) => {
 
 
 let movieSchema = mongoose.Schema({
-
+  id: Number,
+  title: String,
+  popularity: Number,
+  vote_avg: Number,
+  vote_count: Number,
+  overview: String,
+  poster_path: String,
+  backdrop_path: String
 })
 
 let Movie = mongoose.model('Movie', movieSchema);
