@@ -14,12 +14,14 @@
   min-height : 800px;
 }
 
-.wine-block{
+
+.wine-block {
   width : 200px;
   float : left;
   color : #FFF;
   font-size: 20px;
   text-decoration : none;
+  float : right;
 }
 
 
@@ -49,6 +51,17 @@
   text-align: center;
 }
 
+.movie-block {
+  width: 200px;
+  float: left;
+}
+
+.fnd-movie-button {
+  height: 200px;
+  width: 200px;
+  background-color: #8d375d;
+}
+
 .navbar {
   background-color : #8d375d;
  }
@@ -67,3 +80,9 @@
   color : #FFF;
   text-decoration : none;
  }
+
+.movie-block span {
+  font-size: 18px;
+  color: #fff;
+}
+
