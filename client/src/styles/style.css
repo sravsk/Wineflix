@@ -73,6 +73,17 @@
   background-color: #8d375d;
 }
 
+.movie-block {
+  width: 200px;
+  float: left;
+}
+
+.fnd-movie-button {
+  height: 200px;
+  width: 200px;
+  background-color: #8d375d;
+}
+
 .navbar {
   background-color : #8d375d;
  }
