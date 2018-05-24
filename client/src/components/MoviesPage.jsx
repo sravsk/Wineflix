@@ -5,7 +5,6 @@ class MoviesPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       movies: [],
       mounted: false
     }
