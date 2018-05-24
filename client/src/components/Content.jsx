@@ -9,7 +9,7 @@ const Content = (props) => {
         <Grid>
           <div className="content">
             <Link className="wine-block" to="/wines">
-              <div className="fnd-wine-button">Fine a Wine</div>
+              <div className="fnd-wine-button">Find a Wine</div>
             </Link>
             <Link className="movie-block" to="/movies">
               <div className="fnd-movie-button">Find a Movie</div>
