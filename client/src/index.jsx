@@ -5,8 +5,10 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Content from './components/Content.jsx';
 import Wines from './components/Wines.jsx';
+import Movies from './components/Movies.jsx';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import css from './styles/style.css';
+
 
 
 
@@ -23,6 +25,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/" exact={true} component={Content}/>
               <Route path="/wines" exact={true} component={Wines}/>
+              <Route path="/movies" exact={true} component={Movies}/>
            </Switch>
           </Router>
           <div className="footer"><Footer/></div>
