@@ -5,7 +5,8 @@ class PopulatePairings extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      data : this.props.movies
+      data : this.props.movies,
+      wines : this.props.wines
     }
   }
 
@@ -34,7 +35,7 @@ class PopulatePairings extends React.Component {
                 </Col>
                 <Col xs={6} md={4}>
                   <br/>
-                  <Well bsSize="small">{movie.overview}</Well>
+                  <Well bsSize="small">{this.props.wines[0].tasting_note}</Well>
                 </Col>
             </div>
           </Row>
