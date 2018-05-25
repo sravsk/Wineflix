@@ -13,7 +13,7 @@ let fetchMovies = (data, cb) => {
        include_adult: 'false',
        sort_by: 'popularity.desc',
        language: 'en-US',
-       api_key: '6f0f6ccafaaff428439efd8e3edd254a'
+       api_key: process.env.MDBACCESS_KEY
      },
     body: '{}',
     json: true
@@ -23,7 +23,6 @@ let fetchMovies = (data, cb) => {
   requestPromise(options)
     .then((movies)=> {
       MongoDB.saveMovies(movies.results, cb);
-      console.log(JSON.parse(movies.results));
     })
     .catch((err) => {
       console.log("cannot fetch data from The MovieDB", err);
