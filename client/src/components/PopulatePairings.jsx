@@ -20,9 +20,11 @@ class PopulatePairings extends React.Component {
                   <Thumbnail src={`http://image.tmdb.org/t/p/original${movie.poster_path}`}/>
                 </Col>
                <Col xs={3} md={3}>
+                  <div class="pairing-info">
                   <h4>{movie.title}</h4>
                   <p>paired with:</p>
                   <h4>{this.state.wines[0].name}</h4>
+                  </div>
                 </Col>
                 <Col xs={3} md={3}>
                   <Thumbnail src={this.state.wines[0].image_thumb_url}/>
