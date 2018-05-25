@@ -55,20 +55,37 @@ let saveWines =  (allwines, cb) => {
 
 
 let movieSchema = mongoose.Schema({
+  vote_count: Number,
   id: Number,
+  vote_avg: Number,
   title: String,
   popularity: Number,
-  vote_avg: Number,
-  vote_count: Number,
-  overview: String,
   poster_path: String,
+  overview: String,
   backdrop_path: String
 })
 
-let Movie = mongoose.model('Movie', movieSchema);
+let Movies = mongoose.model('Movies', movieSchema);
 
 
-let saveMovies  = () => {
+let saveMovies  = (allmovies, cb) => {
+
+   try {
+    Movies.insertMany(allmovies)
+    .then((movie) => {
+      console.log("movies data saved to db", movie);
+    })
+    .catch((err) => {
+      console.log("error saving data to movies collection", err)
+    })
+  }
+
+  catch(err) {
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.status(409).send(new MyError('Duplicate key', [err.message]));
+    }
+    res.status(500).send(err);
+  }
 
 }
 
