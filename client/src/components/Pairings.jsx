@@ -16,7 +16,6 @@ class Pairings extends React.Component {
   render() {
     return(
       <Grid>
-      <div>hi there</div>
         {/*<SidebarMovies movies={moviesData}/>*/}
         <PopulatePairings movies={moviesData}/>
       </Grid>
