@@ -6,6 +6,7 @@ import Footer from './components/Footer.jsx';
 import Content from './components/Content.jsx';
 import Wines from './components/Wines.jsx';
 import Movies from './components/Movies.jsx';
+import LoginPage from './components/Login.jsx';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import css from './styles/style.css';
 
