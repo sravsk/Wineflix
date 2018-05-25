@@ -16,7 +16,7 @@ class PopulatePairings extends React.Component {
         {this.state.data.map((movie, index) => (
           <Row key={movie.id}>
             <div>
-               <Col xs={6} md={4}>
+               <Col xs={3} md={3}>
                   <Thumbnail src={`http://image.tmdb.org/t/p/original${movie.poster_path}`}/>
                 </Col>
                <Col xs={3} md={3}>
@@ -29,16 +29,6 @@ class PopulatePairings extends React.Component {
                 </Col>
                 <Col xs={3} md={3}>
                   <Thumbnail src={this.state.wines[index].image_thumb_url}/>
-                </Col>
-                <Col xs={6} md={4}>
-                  <div>Votes: {movie.vote_count}</div>
-                </Col>
-                <Col xs={6} md={4}>
-                  <div>Released: {movie.release_date}</div>
-                </Col>
-                <Col xs={6} md={4}>
-                  <br/>
-                  <Well bsSize="small">{movie.overview}</Well>
                 </Col>
             </div>
           </Row>

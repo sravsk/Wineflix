@@ -4,12 +4,13 @@ import { Grid } from 'react-bootstrap';
 import PopulatePairings from './PopulatePairings.jsx';
 //import SidebarMovies from './SidebarMovies.jsx';
 import moviesData from '../data/moviesData.js';
+import winesData from '../data/winesData.js';
 
 class Pairings extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      movies : []
+     // movies : []
     }
   }
 
@@ -17,7 +18,7 @@ class Pairings extends React.Component {
     return(
       <Grid>
         {/*<SidebarMovies movies={moviesData}/>*/}
-        <PopulatePairings movies={moviesData}/>
+        <PopulatePairings movies={moviesData} wines={winesData}/>
       </Grid>
       )
   }
