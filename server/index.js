@@ -36,36 +36,37 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.post('/signup', (req, res) => {
+app.post('/signup', (req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
 
   db.checkUser(username, function (wasFound){
-    if (wasFound) {
-      console.log('user exists');
-    }
-    else {
-      console.log('user does not exist');
+    if (!wasFound) {
       db.saveUser(username, password);
     }
-
   })
-  res.end();
+  return res.redirect('/login');next();
 });
 
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
+  console.log('/login get request running');
   let username = req.body.username;
   let password = req.body.password;
+
   db.checkUser(username, function (wasFound) {
     if (wasFound) {
-      //create session
-      console.log('app.get user found')
+      //password same
+        //create session
+      //password different
+        //return to login page
+      console.log('user found')
+      return res.redirect('/');
     }
     else {
-      console.log('app.get user does not exist')
+      console.log('user does not exist')
+      return res.redirect('/login');
     }
   });
-  res.end();
 })
 
 

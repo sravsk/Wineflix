@@ -11,7 +11,7 @@ class Signup extends React.Component {
 
   render() {
     return(
-<div>
+<div>SIGNUP
 <form action="/signup" method="post">
     <div>
       <label>Username:</label>

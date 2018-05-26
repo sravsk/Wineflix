@@ -88,11 +88,10 @@ let checkUser = (username, cb) => {
 }
 
 let saveUser = (username, password) => {
-  console.log('saveuser: ', username, password);
   var newUser = new User({username: username, password: password});
   newUser.save(err=>{
     if (err) {console.log(err);}
-    console.log('user saved to db');
+    console.log(username + ' saved to database');
   })
 
 }
