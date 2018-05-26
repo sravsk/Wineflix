@@ -56,7 +56,15 @@ app.post('/signup', (req, res) => {
 app.get('/login', (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
-  console.log('login get: ', req.body);
+  db.checkUser(username, function (wasFound) {
+    if (wasFound) {
+      //create session
+      console.log('app.get user found')
+    }
+    else {
+      console.log('app.get user does not exist')
+    }
+  });
   res.end();
 })
 

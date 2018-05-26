@@ -16,11 +16,11 @@ handleClick(){
 <div>
 <form action="/login" method="get">
     <div>
-      <label for="username">Username:</label>
+      <label>Username:</label>
       <input id="username" type="text" name="username"></input>
     </div>
     <div>
-      <label for="password">Password:</label>
+      <label>Password:</label>
       <input id="password" type="password" name="password"></input>
     </div>
     <div>

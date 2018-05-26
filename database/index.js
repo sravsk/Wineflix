@@ -65,9 +65,11 @@ let saveMovies  = () => {
 }
 
 let userSchema = mongoose.Schema({
+  id : {type : Number, unique : true},
   username: String,
   password: String
 });
+userSchema.set('autoIndex', false);
 
 let User = mongoose.model('User', userSchema);
 
@@ -86,6 +88,7 @@ let checkUser = (username, cb) => {
 }
 
 let saveUser = (username, password) => {
+  console.log('saveuser: ', username, password);
   var newUser = new User({username: username, password: password});
   newUser.save(err=>{
     if (err) {console.log(err);}
