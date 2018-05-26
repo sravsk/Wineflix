@@ -8,11 +8,13 @@ class Login extends React.Component {
       password: ""
     }
   }
-
+handleClick(){
+  console.log('clicked');
+}
   render() {
     return(
 <div>
-<form action="/login" method="post">
+<form action="/login" method="get">
     <div>
       <label for="username">Username:</label>
       <input id="username" type="text" name="username"></input>

@@ -64,5 +64,39 @@ let saveMovies  = () => {
 
 }
 
+let userSchema = mongoose.Schema({
+  username: String,
+  password: String
+});
+
+let User = mongoose.model('User', userSchema);
+
+let checkUser = (username, cb) => {
+  var query  = User.where({ username: username });
+  query.findOne(function (err, user) {
+  if (err) return handleError(err);
+  if (user) {
+    // doc may be null if no document matched
+    // console.log(user);
+    cb(true);
+  }
+  else {cb(false);}
+});
+
+}
+
+let saveUser = (username, password) => {
+  var newUser = new User({username: username, password: password});
+  newUser.save(err=>{
+    if (err) {console.log(err);}
+    console.log('user saved to db');
+  })
+
+}
+
+
+
 module.exports.saveWines = saveWines;
 module.exports.saveMovies = saveMovies;
+module.exports.checkUser = checkUser;
+module.exports.saveUser = saveUser;

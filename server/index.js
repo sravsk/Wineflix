@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const session = require('express-session');
 const service = require('../services/winesFetcher.js');
+const db = require('../database/index.js');
 
 
 const dotenv = require('dotenv');
@@ -27,6 +28,37 @@ app.get('*', function(req, res) {
  // console.log('serving default route')
  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 });
+
+
+app.use(session({
+  secret: 'asdf',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.post('/signup', (req, res) => {
+  let username = req.body.username;
+  let password = req.body.password;
+
+  db.checkUser(username, function (wasFound){
+    if (wasFound) {
+      console.log('user exists');
+    }
+    else {
+      console.log('user does not exist');
+      db.saveUser(username, password);
+    }
+
+  })
+  res.end();
+});
+
+app.get('/login', (req, res) => {
+  let username = req.body.username;
+  let password = req.body.password;
+  console.log('login get: ', req.body);
+  res.end();
+})
 
 
 

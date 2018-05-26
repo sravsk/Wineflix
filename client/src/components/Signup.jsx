@@ -19,7 +19,7 @@ class Signup extends React.Component {
     </div>
     <div>
       <label for="password">Password:</label>
-      <input id="password" type="password" name="password"></input>
+      <input id="password" type="text" name="password"></input>
     </div>
     <div>
       <input type="submit" value="Sign up"></input>
