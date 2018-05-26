@@ -53,6 +53,28 @@ let saveWines =  (allwines, cb) => {
 }
 
 
+let retriveWines = () => {
+  try {
+    return Wines.find({}).limit(5).exec()
+      .then((wines) => {
+        //console.log("wines retrived", wines);
+        //console.log("wines in db ", JSON.stringify(wines));
+        //cb(JSON.stringify(wines));
+        return wines;
+      })
+      .catch((err) => {
+        console.log("error retriving wines data", err);
+      })
+
+
+  }
+
+  catch(err) {
+    return res.status(500).send(err);
+  }
+}
+
+
 
 let movieSchema = mongoose.Schema({
   vote_count: Number,
@@ -127,3 +149,4 @@ module.exports.saveWines = saveWines;
 module.exports.saveMovies = saveMovies;
 module.exports.checkUser = checkUser;
 module.exports.saveUser = saveUser;
+module.exports.retriveWines = retriveWines;
