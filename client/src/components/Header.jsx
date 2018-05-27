@@ -17,12 +17,12 @@ const Header = (props) => {
           <Nav pullRight>
             <NavItem
               eventKey={1}
-              href="#">
+              href="signup">
               Create account
             </NavItem>
             <NavItem
               eventKey={2}
-              href="#">
+              href="login">
               Login
             </NavItem>
           </Nav>

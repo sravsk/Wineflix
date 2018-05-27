@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const db = require('../database/index.js');
 
 const wineService = require('../services/winesFetcher.js');
 const movieService = require('../services/moviesFetcher.js');
@@ -36,6 +38,46 @@ app.get('*', function(req, res) {
  // console.log('serving default route')
  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 });
+
+
+app.use(session({
+  secret: 'asdf',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.post('/signup', (req, res, next) => {
+  let username = req.body.username;
+  let password = req.body.password;
+
+  db.checkUser(username, function (wasFound){
+    if (!wasFound) {
+      db.saveUser(username, password);
+    }
+  })
+  return res.redirect('/login');next();
+});
+
+app.post('/login', (req, res) => {
+  console.log('/login get request running');
+  let username = req.body.username;
+  let password = req.body.password;
+
+  db.checkUser(username, function (wasFound) {
+    if (wasFound) {
+      //password same
+        //create session
+      //password different
+        //return to login page
+      console.log('user found')
+      return res.redirect('/');
+    }
+    else {
+      console.log('user does not exist')
+      return res.redirect('/login');
+    }
+  });
+})
 
 
 
