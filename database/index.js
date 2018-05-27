@@ -58,11 +58,11 @@ let saveWines = (allwines, cb) => {
 }
 
 
-let retriveWines = () => {
+let retriveWines = (cb) => {
   try {
     return Wines.find({}).limit(5).exec()
       .then((wines) => {
-        return wines;
+        cb(wines);
       })
       .catch((err) => {
         console.log("error retriving wines data", err);
@@ -73,6 +73,15 @@ let retriveWines = () => {
   }
 }
 
+let getWinesQuery = (query, cb) => {
+  Wines.find({"tags": {"$regex": `${query}`, "$options": "i"}}, (err, wines) => {
+    if (err) {
+      console.error('Get wine query error: ', err);
+    } else {
+      cb(wines);
+    }
+  })
+}
 
 let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) => {
   try {
@@ -152,9 +161,8 @@ let getMovies = (cb) => {
 let getMoviesQuery = (query, cb) => {
   Movies.find({"title": {"$regex": `${query}`, "$options": "i"}}, (err, movies) => {
     if (err) {
-      console.error('Get query error: ', err);
+      console.error('Get movie query error: ', err);
     } else {
-      console.log('query', query)
       cb(movies);
     }
   })
@@ -201,3 +209,4 @@ module.exports.retriveWines = retriveWines;
 module.exports.updateWinesWithAnalyzedData = updateWinesWithAnalyzedData;
 module.exports.getMovies = getMovies;
 module.exports.getMoviesQuery = getMoviesQuery;
+module.exports.getWinesQuery = getWinesQuery;
