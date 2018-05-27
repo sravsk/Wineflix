@@ -3,8 +3,9 @@ import { Button } from 'react-bootstrap';
 import { Grid } from 'react-bootstrap';
 import PopulateMovies from './PopulateMovies.jsx';
 import SearchMovies from './SearchMovies.jsx';
+import $ from 'jquery';
 //import SidebarMovies from './SidebarMovies.jsx';
-import moviesData from '../data/moviesData.js';
+//import moviesData from '../data/moviesData.js';
 
 class Movies extends React.Component {
   constructor(props){
@@ -12,16 +13,46 @@ class Movies extends React.Component {
     this.state = {
       movies : []
     }
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  componentDidMount() {
+    $.ajax({
+      type: 'GET',
+      url: '/moviedata',
+      contentType: 'application/json',
+      success: (data) => {
+        this.setState({movies: data});
+      },
+      error: (err) => {
+        console.error('Client movie fetch error: ', err);
+      }
+    })
+  }
+
+  handleSearch(query) {
+    $.ajax({
+      type: 'POST',
+      url: '/moviedata',
+      data: {query: query},
+      success: (movies) => {
+        console.log('searchmovie', movies)
+        this.setState({movies: movies});
+      },
+      error: (err) => {
+        console.error('Client search error: ', err);
+      }
+    })
   }
 
   render() {
     return(
       <Grid>
-        <SearchMovies/>
+        <SearchMovies onSearch={this.handleSearch}/>
         {/*<SidebarMovies movies={moviesData}/>*/}
-        <PopulateMovies movies={moviesData}/>
+        <PopulateMovies movies={this.state.movies}/>
       </Grid>
-      )
+    )
   }
 }
 

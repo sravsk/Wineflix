@@ -1,18 +1,11 @@
 import React from 'react';
 import { Grid, Row, Col, Well, Thumbnail, Button} from 'react-bootstrap';
 
-class PopulateMovies extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      data : this.props.movies
-    }
-  }
+const PopulateMovies = (props) => {
 
-  render(){
     return(
       <Grid>
-        {this.state.data.map((movie) => (
+        {props.movies.map((movie) => (
           <Row key={movie.id}>
             <div>
                <Col xs={6} md={4}>
@@ -42,7 +35,6 @@ class PopulateMovies extends React.Component {
       }
       </Grid>
     )
-  }
 }
 
 export default PopulateMovies;

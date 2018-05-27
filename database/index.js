@@ -36,7 +36,7 @@ let wineSchema = mongoose.Schema({
 
 let Wines = mongoose.model('Wines', wineSchema);
 
-let saveWines =  (allwines, cb) => {
+let saveWines = (allwines, cb) => {
 
   try {
     Wines.insertMany(allwines)
@@ -106,18 +106,19 @@ let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) =>
 let movieSchema = mongoose.Schema({
   vote_count: Number,
   id: Number,
-  vote_avg: Number,
+  vote_average: Number,
   title: String,
   popularity: Number,
   poster_path: String,
   overview: String,
-  backdrop_path: String
+  backdrop_path: String,
+  release_date: String
 })
 
 let Movies = mongoose.model('Movies', movieSchema);
 
 
-let saveMovies  = (allmovies, cb) => {
+let saveMovies = (allmovies, cb) => {
 
    try {
     Movies.insertMany(allmovies)
@@ -136,6 +137,27 @@ let saveMovies  = (allmovies, cb) => {
     res.status(500).send(err);
   }
 
+}
+
+let getMovies = (cb) => {
+  Movies.find().exec((err, movies) => {
+    if (err) {
+      console.error('Get movies error: ', err);
+    } else {
+      cb(movies);
+    }
+  })
+}
+
+let getMoviesQuery = (query, cb) => {
+  Movies.find({"title": {"$regex": `${query}`, "$options": "i"}}, (err, movies) => {
+    if (err) {
+      console.error('Get query error: ', err);
+    } else {
+      console.log('query', query)
+      cb(movies);
+    }
+  })
 }
 
 let userSchema = mongoose.Schema({
@@ -171,10 +193,11 @@ let saveUser = (username, password) => {
 }
 
 
-
 module.exports.saveWines = saveWines;
 module.exports.saveMovies = saveMovies;
 module.exports.checkUser = checkUser;
 module.exports.saveUser = saveUser;
 module.exports.retriveWines = retriveWines;
 module.exports.updateWinesWithAnalyzedData = updateWinesWithAnalyzedData;
+module.exports.getMovies = getMovies;
+module.exports.getMoviesQuery = getMoviesQuery;
