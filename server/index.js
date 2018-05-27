@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const service = require('../services/winesFetcher.js');
 const db = require('../database/index.js');
+
+const wineService = require('../services/winesFetcher.js');
+const movieService = require('../services/moviesFetcher.js');
 
 
 const dotenv = require('dotenv');
@@ -17,11 +19,19 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/winesFetcher', (req, res) => {
-  service.fetchWines((data, cb) => {
+  wineService.fetchWines((data, cb) => {
     if(cb) {
-      res.json("data sent");
+      res.json("wines data sent");
     }
   });
+})
+
+app.get('/moviesFetcher', (req, res) => {
+  movieService.fetchMovies((data, cb) => {
+    if (cb) {
+      res.json("movies data sent")
+    }
+  })
 })
 
 app.get('*', function(req, res) {

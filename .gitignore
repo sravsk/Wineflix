@@ -26,6 +26,12 @@ build/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+<<<<<<< HEAD
+database/data/
+
+=======
+database/data
+>>>>>>> 847669ae36ed72c2e9146385c453e0fbb97da54c
 
 # dotenv environment variables file
 .env
