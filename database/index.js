@@ -60,7 +60,7 @@ let saveWines = (allwines, cb) => {
 
 let retriveWines = (cb) => {
   try {
-    return Wines.find({}).limit(5).exec()
+    return Wines.find({}).limit(20).exec()
       .then((wines) => {
         cb(wines);
       })
