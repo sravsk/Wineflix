@@ -106,12 +106,13 @@ let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) =>
 let movieSchema = mongoose.Schema({
   vote_count: Number,
   id: Number,
-  vote_avg: Number,
+  vote_average: Number,
   title: String,
   popularity: Number,
   poster_path: String,
   overview: String,
-  backdrop_path: String
+  backdrop_path: String,
+  release_date: String
 })
 
 let Movies = mongoose.model('Movies', movieSchema);
@@ -139,7 +140,7 @@ let saveMovies = (allmovies, cb) => {
 }
 
 let getMovies = (cb) => {
-  Movies.find().sort({popularity: -1}).exec((err, movies) => {
+  Movies.find().exec((err, movies) => {
     if (err) {
       console.error('Get movies error: ', err);
     } else {
@@ -187,3 +188,4 @@ module.exports.checkUser = checkUser;
 module.exports.saveUser = saveUser;
 module.exports.retriveWines = retriveWines;
 module.exports.updateWinesWithAnalyzedData = updateWinesWithAnalyzedData;
+module.exports.getMovies = getMovies;
