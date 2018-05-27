@@ -40,11 +40,18 @@ app.get('/api/analyzeWines', (req, res, next) => {
 });
 
 
-app.get('/moviesFetcher', (req, res) => {
+app.get('/api/moviesFetcher', (req, res) => {
   movieService.fetchMovies((data, cb) => {
     if (cb) {
       res.json("movies data sent")
     }
+  })
+})
+
+app.get('/moviedata', (req, res) => {
+  db.getMovies((movies) => {
+    console.log('movies', movies)
+    res.send(movies);
   })
 })
 
