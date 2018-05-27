@@ -39,6 +39,17 @@ app.get('/api/analyzeWines', (req, res, next) => {
   })
 });
 
+app.get('/winedata', (req, res) => {
+  db.retriveWines((wines) => {
+    res.send(wines);
+  })
+})
+
+app.post('/winedata', (req, res) => {
+  db.getWinesQuery(req.body.query, (wines) => {
+    res.send(wines);
+  })
+})
 
 app.get('/api/moviesFetcher', (req, res) => {
   movieService.fetchMovies((data, cb) => {
@@ -57,7 +68,6 @@ app.get('/moviedata', (req, res) => {
 
 app.post('/moviedata', (req, res) => {
   db.getMoviesQuery(req.body.query, (movies) => {
-    console.log('reqbod', req.body)
     res.send(movies);
   })
 })

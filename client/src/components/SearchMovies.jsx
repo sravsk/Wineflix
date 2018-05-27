@@ -20,7 +20,6 @@ class SearchMovies extends React.Component {
   handleKeyUp(e) {
     if (e.key === 'Enter' && this.state.query !== '') {
       this.props.onSearch(this.state.query);
-      console.log('pressed')
     }
   }
 
