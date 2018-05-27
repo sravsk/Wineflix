@@ -33,7 +33,6 @@ const PopulateMovies = (props) => {
           </Row>
         ))
       }
-      <button onClick={() => console.log('pop', props)}></button>
       </Grid>
     )
 }

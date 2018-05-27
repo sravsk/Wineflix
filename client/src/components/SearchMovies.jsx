@@ -7,11 +7,20 @@ class SearchMovies extends React.Component {
     this.state = {
       query: ''
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+  }
+
+  handleInputChange(e) {
+    this.setState({
+      query: e.target.value
+    })
   }
 
   handleKeyUp(e) {
-    if (e.key === 'Enter') {
-      return
+    if (e.key === 'Enter' && this.state.query !== '') {
+      this.props.onSearch(this.state.query);
+      console.log('pressed')
     }
   }
 
@@ -22,9 +31,9 @@ class SearchMovies extends React.Component {
           <div className="search-wrapper">
             <input className="input-search"
                     placeholder="search movies"
-                    ref={input => this.search = input}
                     onChange={this.handleInputChange}
-                    onKeyUp={this.handleKeyUp} />
+                    onKeyUp={this.handleKeyUp}
+                    value={this.state.query} />
           </div>
         </Row>
       </Grid>

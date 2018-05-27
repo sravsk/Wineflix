@@ -13,16 +13,16 @@ class Movies extends React.Component {
     this.state = {
       movies : []
     }
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
     $.ajax({
       type: 'GET',
       url: '/moviedata',
+      contentType: 'application/json',
       success: (data) => {
-        this.setState({
-          movies: data
-        })
+        this.setState({movies: data});
       },
       error: (err) => {
         console.error('Client movie fetch error: ', err);
@@ -30,15 +30,25 @@ class Movies extends React.Component {
     })
   }
 
-  handleSearch() {
-
+  handleSearch(query) {
+    $.ajax({
+      type: 'POST',
+      url: '/moviedata',
+      data: {query: query},
+      success: (movies) => {
+        console.log('searchmovie', movies)
+        this.setState({movies: movies});
+      },
+      error: (err) => {
+        console.error('Client search error: ', err);
+      }
+    })
   }
 
   render() {
     return(
       <Grid>
-      <button onClick={() => console.log(this.state.movies)}></button>
-        <SearchMovies onSearch/>
+        <SearchMovies onSearch={this.handleSearch}/>
         {/*<SidebarMovies movies={moviesData}/>*/}
         <PopulateMovies movies={this.state.movies}/>
       </Grid>
