@@ -18,9 +18,8 @@ class Movies extends React.Component {
   componentDidMount() {
     $.ajax({
       type: 'GET',
-      url: '/moviesFetcher',
+      url: '/moviedata',
       success: (data) => {
-        console.log('client data', data)
         this.setState({
           movies: data
         })
