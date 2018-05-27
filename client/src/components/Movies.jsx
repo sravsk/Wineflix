@@ -3,8 +3,9 @@ import { Button } from 'react-bootstrap';
 import { Grid } from 'react-bootstrap';
 import PopulateMovies from './PopulateMovies.jsx';
 import SearchMovies from './SearchMovies.jsx';
+import $ from 'jquery';
 //import SidebarMovies from './SidebarMovies.jsx';
-import moviesData from '../data/moviesData.js';
+//import moviesData from '../data/moviesData.js';
 
 class Movies extends React.Component {
   constructor(props){
@@ -14,14 +15,35 @@ class Movies extends React.Component {
     }
   }
 
+  componentDidMount() {
+    $.ajax({
+      type: 'GET',
+      url: '/moviesFetcher',
+      success: (data) => {
+        console.log('client data', data)
+        this.setState({
+          movies: data
+        })
+      },
+      error: (err) => {
+        console.error('Client movie fetch error: ', err);
+      }
+    })
+  }
+
+  handleSearch() {
+
+  }
+
   render() {
     return(
       <Grid>
-        <SearchMovies/>
+      <button onClick={() => console.log(this.state.movies)}></button>
+        <SearchMovies onSearch/>
         {/*<SidebarMovies movies={moviesData}/>*/}
-        <PopulateMovies movies={moviesData}/>
+        <PopulateMovies movies={this.state.movies}/>
       </Grid>
-      )
+    )
   }
 }
 
