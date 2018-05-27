@@ -149,6 +149,17 @@ let getMovies = (cb) => {
   })
 }
 
+let getMoviesQuery = (query, cb) => {
+  Movies.find({"title": {"$regex": `${query}`, "$options": "i"}}, (err, movies) => {
+    if (err) {
+      console.error('Get query error: ', err);
+    } else {
+      console.log('query', query)
+      cb(movies);
+    }
+  })
+}
+
 let userSchema = mongoose.Schema({
   id : {type : Number, unique : true},
   username: String,
@@ -189,3 +200,4 @@ module.exports.saveUser = saveUser;
 module.exports.retriveWines = retriveWines;
 module.exports.updateWinesWithAnalyzedData = updateWinesWithAnalyzedData;
 module.exports.getMovies = getMovies;
+module.exports.getMoviesQuery = getMoviesQuery;
