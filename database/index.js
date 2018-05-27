@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 
+const ObjectId = mongoose.Types.ObjectId;
+
 mongoose.connect('mongodb://localhost/wines-movies');
 
 let db = mongoose.connection;
@@ -26,7 +28,10 @@ let wineSchema = mongoose.Schema({
   image_url : String,
   varietal : String,
   product_no : Number,
-  date_Created : Date
+  sentiment : {},
+  keywords : [],
+  entities : [],
+  emotion : {}
 });
 
 let Wines = mongoose.model('Wines', wineSchema);
@@ -57,20 +62,42 @@ let retriveWines = () => {
   try {
     return Wines.find({}).limit(5).exec()
       .then((wines) => {
-        //console.log("wines retrived", wines);
-        //console.log("wines in db ", JSON.stringify(wines));
-        //cb(JSON.stringify(wines));
         return wines;
       })
       .catch((err) => {
         console.log("error retriving wines data", err);
       })
-
-
   }
-
   catch(err) {
     return res.status(500).send(err);
+  }
+}
+
+
+let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) => {
+  try {
+    //id =  ObjectId();
+    console.log("id inside updateWinesWithAnalyzedData", id);
+    console.log("sentiment inside updateWinesWithAnalyzedData", sentiment);
+    console.log("keywords inside updateWinesWithAnalyzedData", keywords);
+    console.log("entities inside updateWinesWithAnalyzedData", entities);
+    console.log("emotion inside updateWinesWithAnalyzedData", emotion);
+    return Wines.findByIdAndUpdate({ _id : id}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } , { multi: true })
+     //return Wines.update({}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } , { multi: true })
+    .then((wines) => {
+      console.log("wines after updated", wines)
+
+      return wines;
+    })
+    .catch((err) => {
+      console.log("error updating wines data", err);
+    })
+  }
+  catch(err) {
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.status(409).send(new MyError('Duplicate key', [err.message]));
+    }
+    res.status(500).send(new MyError('Unknown Server Error', ['Unknow server error when updating wines data ']));
   }
 }
 
@@ -150,3 +177,4 @@ module.exports.saveMovies = saveMovies;
 module.exports.checkUser = checkUser;
 module.exports.saveUser = saveUser;
 module.exports.retriveWines = retriveWines;
+module.exports.updateWinesWithAnalyzedData = updateWinesWithAnalyzedData;

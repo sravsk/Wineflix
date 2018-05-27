@@ -26,7 +26,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/api/winesFetcher', (req, res, next) => {
   winesFetcherService.fetchWines((data, cb) => {
     if(cb) {
-      //send this data to client ?
       res.json("data sent");
       }
     });
@@ -35,7 +34,6 @@ app.get('/api/winesFetcher', (req, res, next) => {
 app.get('/api/analyzeWines', (req, res, next) => {
   winesNLUService.winesNLU((cb) => {
     if(cb) {
-      //send this data to client ?
       res.json("data sent");
     }
   })
