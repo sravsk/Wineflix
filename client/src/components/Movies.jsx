@@ -36,11 +36,10 @@ class Movies extends React.Component {
       url: '/moviedata',
       data: {query: query},
       success: (movies) => {
-        console.log('searchmovie', movies)
         this.setState({movies: movies});
       },
       error: (err) => {
-        console.error('Client search error: ', err);
+        console.error('Client movie search error: ', err);
       }
     })
   }
