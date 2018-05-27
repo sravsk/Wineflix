@@ -1,5 +1,5 @@
-const results = [
-      {
+ [
+   {
          "id":589051,
          "is_dead":false,
          "name":"Peller Estates French Cross Dry White Bag in Box",
@@ -1039,5 +1039,4 @@ const results = [
          "has_clearance_sale":false,
          "product_no":207860
       }
-   ];
-export default results;
+   ]

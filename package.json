@@ -42,6 +42,7 @@
     "react-router-dom": "^4.2.2",
     "react-signup-login-component": "^1.0.3",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "watson-developer-cloud": "^3.4.2"
   }
 }

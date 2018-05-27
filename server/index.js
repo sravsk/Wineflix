@@ -1,13 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const session = require('express-session');
 const db = require('../database/index.js');
 
-const wineService = require('../services/winesFetcher.js');
+const dotenv = require('dotenv').config();
+
 const movieService = require('../services/moviesFetcher.js');
 
+const winesFetcherService = require('../services/winesFetcher.js');
+const winesNLUService = require('../services/winesNLU.js');
 
-const dotenv = require('dotenv');
+const winesData = require('../client/src/data/winesData.json');
+
 const path = require('path');
 
 /* Initialize Express */
@@ -18,13 +23,22 @@ app.use(bodyParser.json({ type: 'application/json' }));
 app.use(express.static(__dirname + '/../client/dist'));
 
 
-app.get('/winesFetcher', (req, res) => {
-  wineService.fetchWines((data, cb) => {
+app.get('/api/winesFetcher', (req, res, next) => {
+  winesFetcherService.fetchWines((data, cb) => {
     if(cb) {
-      res.json("wines data sent");
+      res.json("data sent");
+      }
+    });
+});
+
+app.get('/api/analyzeWines', (req, res, next) => {
+  winesNLUService.winesNLU((cb) => {
+    if(cb) {
+      res.json("data sent");
     }
-  });
-})
+  })
+});
+
 
 app.get('/moviesFetcher', (req, res) => {
   movieService.fetchMovies((data, cb) => {
