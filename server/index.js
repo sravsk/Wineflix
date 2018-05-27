@@ -55,6 +55,13 @@ app.get('/moviedata', (req, res) => {
   })
 })
 
+app.post('/moviedata', (req, res) => {
+  db.getMoviesQuery(req.body.query, (movies) => {
+    console.log('reqbod', req.body)
+    res.send(movies);
+  })
+})
+
 app.get('*', function(req, res) {
  // console.log('serving default route')
  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
