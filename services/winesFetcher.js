@@ -3,9 +3,9 @@ const dotenv = require('dotenv').config();
 const MongoDB = require('../database/index.js');
 
 
-let fetchWines = (data, cb) => {
+let fetchWines = (cb) => {
   let options = {
-    uri : 'https://lcboapi.com/products?q=wine&per_page=99&page=3&access_key=' + process.env.ACCESS_KEY,
+    uri : 'https://lcboapi.com/products?q=wine&per_page=99&page=35&access_key=' + process.env.ACCESS_KEY,
     headers : {
       'User-Agent' : 'Request-Promise'
     },
@@ -14,7 +14,8 @@ let fetchWines = (data, cb) => {
 
 requestPromise(options)
   .then((wines)=> {
-    MongoDB.saveWines(wines.result, cb);
+    MongoDB.saveWines(wines.result);
+    cb(wines);
   })
   .catch((err) => {
     console.log("cannot fetch data from LCBO API", err);
