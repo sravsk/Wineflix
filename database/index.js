@@ -62,7 +62,7 @@ let retriveWines = (cb) => {
   try {
   // Even though we have delay setup in order to avoid IBM Waston API rate limit - 429 error, not all X documents are being updated at one go, so for the ones that don't get updated, please execute the winesNUL service again by finding all the documents that don't have "emotion" data.
   // return Wines.find({ "emotion": { "$in": [ null, {} ] } }).exec()
-    return Wines.find({).exec()
+    return Wines.find({}).exec()
       .then((wines) => {
         cb(wines);
       })
