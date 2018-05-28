@@ -36,8 +36,8 @@ let wineSchema = mongoose.Schema({
 
 let Wines = mongoose.model('Wines', wineSchema);
 
-let saveWines = (allwines, cb) => {
 
+let saveWines =  (allwines) => {
   try {
     Wines.insertMany(allwines)
     .then((wine) => {
@@ -60,7 +60,9 @@ let saveWines = (allwines, cb) => {
 
 let retriveWines = (cb) => {
   try {
-    return Wines.find({}).limit(20).exec()
+  // Even though we have delay setup in order to avoid IBM Waston API rate limit - 429 error, not all X documents are being updated at one go, so for the ones that don't get updated, please execute the winesNUL service again by finding all the documents that don't have "emotion" data.
+  // return Wines.find({ "emotion": { "$in": [ null, {} ] } }).exec()
+    return Wines.find({).exec()
       .then((wines) => {
         cb(wines);
       })
@@ -85,17 +87,9 @@ let getWinesQuery = (query, cb) => {
 
 let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) => {
   try {
-    //id =  ObjectId();
-    console.log("id inside updateWinesWithAnalyzedData", id);
-    console.log("sentiment inside updateWinesWithAnalyzedData", sentiment);
-    console.log("keywords inside updateWinesWithAnalyzedData", keywords);
-    console.log("entities inside updateWinesWithAnalyzedData", entities);
-    console.log("emotion inside updateWinesWithAnalyzedData", emotion);
-    return Wines.findByIdAndUpdate({ _id : id}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } , { multi: true })
-     //return Wines.update({}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } , { multi: true })
+    return Wines.findByIdAndUpdate({ _id : id}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } )
     .then((wines) => {
-      console.log("wines after updated", wines)
-
+      console.log("wine id updated", id)
       return wines;
     })
     .catch((err) => {
@@ -109,7 +103,6 @@ let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) =>
     res.status(500).send(new MyError('Unknown Server Error', ['Unknow server error when updating wines data ']));
   }
 }
-
 
 
 let movieSchema = mongoose.Schema({

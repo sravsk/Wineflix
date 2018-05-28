@@ -24,18 +24,20 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/api/winesFetcher', (req, res, next) => {
-  winesFetcherService.fetchWines((data, cb) => {
-    if(cb) {
-      res.json("data sent");
+  winesFetcherService.fetchWines((data) => {
+    if(data) {
+      res.end();
       }
     });
 });
 
 app.get('/api/analyzeWines', (req, res, next) => {
-  winesNLUService.winesNLU((cb) => {
-    if(cb) {
-      res.json("data sent");
-    }
+  winesNLUService.winesNLU((results) => {
+      //res.json("data sent");
+      if(results) {
+        res.end();
+      }
+
   })
 });
 
@@ -71,11 +73,6 @@ app.post('/moviedata', (req, res) => {
     res.send(movies);
   })
 })
-
-app.get('*', function(req, res) {
- // console.log('serving default route')
- res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
-});
 
 
 app.use(session({
@@ -116,6 +113,11 @@ app.post('/login', (req, res) => {
     }
   });
 })
+
+app.get('*', function(req, res) {
+ // console.log('serving default route')
+ res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+});
 
 
 
