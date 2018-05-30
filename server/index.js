@@ -54,9 +54,9 @@ app.post('/winedata', (req, res) => {
 })
 
 app.get('/api/moviesFetcher', (req, res) => {
-  movieService.fetchMovies((data, cb) => {
-    if (cb) {
-      res.json("movies data sent")
+  movieService.fetchMovies((data) => {
+    if (data) {
+      res.end();
     }
   })
 })
