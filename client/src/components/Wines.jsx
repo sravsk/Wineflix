@@ -47,7 +47,6 @@ class Wines extends React.Component {
   render() {
     return(
       <Grid>
-      <button onClick={() => console.log(this.state.wines)}></button>
         <SearchWines onSearch={this.handleSearch}/>
         {/*<SidebarWines wines={winesData}/>*/}
         <PopulateWines wines={this.state.wines}/>

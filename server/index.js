@@ -42,7 +42,7 @@ app.get('/api/analyzeWines', (req, res, next) => {
 });
 
 app.get('/winedata', (req, res) => {
-  db.retriveWines((wines) => {
+  db.retrivePopularWines((wines) => {
     res.send(wines);
   })
 })
@@ -62,8 +62,8 @@ app.get('/api/moviesFetcher', (req, res) => {
 })
 
 app.get('/moviedata', (req, res) => {
-  db.getMovies((movies) => {
-    console.log('movies', movies)
+  db.getPopularMovies((movies) => {
+    //console.log('movies', movies)
     res.send(movies);
   })
 })
