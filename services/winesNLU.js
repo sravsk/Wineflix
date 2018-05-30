@@ -40,7 +40,6 @@ let winesNLU = (cb) => {
 
   MongoDB.retriveWines()
     .then((data) => {
-      console.log("data inside winesNLU", data);
       var i;
       for(i = 0; i < data.length; i++) {
         var keys = ['description', 'serving_suggestion', 'tasting_note', '_id'];
