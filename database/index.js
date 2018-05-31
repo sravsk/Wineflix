@@ -300,8 +300,8 @@ module.exports.updateMoviesWithAnalyzedData = updateMoviesWithAnalyzedData;
 //Pairing collection - stores all pairings
 let pairingSchema = mongoose.Schema({
   id : {type : Number, unique : true},
-  movie_id: {type: Schema.Types.ObjectId, ref: 'Movies'},
-  wine_id: {type: Schema.Types.ObjectId, ref: 'Wines'}
+  movie_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Movies'},
+  wine_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Wines'}
 });
 
 let Pairings = mongoose.model('Pairings', pairingSchema);
@@ -311,7 +311,7 @@ let Pairings = mongoose.model('Pairings', pairingSchema);
 //My Pairing collection - stores one user's pairings
 let myPairingSchema = mongoose.Schema({
   id : {type : Number, unique : true},
-  pairing_id: {type: Schema.Types.ObjectId, ref: 'Pairings'},
+  pairing_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Pairings'},
   rating: {type: Boolean}
 });
 
