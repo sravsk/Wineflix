@@ -107,7 +107,7 @@ let updateWinesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) =>
 
 let retrivePopularWines = (cb) => {
   try {
-    return Wines.find({"description": { "$nin": null }}).limit(10).exec()
+    return Wines.find({"description": { "$nin": null }}).sort({'sentiment.sentiment.document.score' : -1}).limit(10).exec()
       .then((wines) => {
         cb(wines);
       })
@@ -130,7 +130,12 @@ let movieSchema = mongoose.Schema({
   poster_path: String,
   overview: String,
   backdrop_path: String,
-  release_date: String
+  release_date: String,
+  genre_ids : [],
+  sentiment : {},
+  keywords : [],
+  entities : [],
+  emotion : {}
 })
 
 let Movies = mongoose.model('Movies', movieSchema);
@@ -158,13 +163,17 @@ let saveMovies = (allmovies, cb) => {
 }
 
 let getMovies = (cb) => {
-  Movies.find().exec((err, movies) => {
-    if (err) {
-      console.error('Get movies error: ', err);
-    } else {
-      cb(movies);
-    }
-  })
+  try {
+  // Even though we have delay setup in order to avoid IBM Waston API rate limit - 429 error, not all X documents are being updated at one go, so for the ones that don't get updated, please execute the winesNUL service again by finding all the documents that don't have "emotion" data.
+   //return Movies.find({ "emotion": { "$in": [ null, {} ] } }).exec()
+    return Movies.find({}).exec()
+      .catch((err) => {
+        console.log("error retriving wines data", err);
+      })
+  }
+  catch(err) {
+    return res.status(500).send(err);
+  }
 }
 
 let getMoviesQuery = (query, cb) => {
@@ -178,7 +187,7 @@ let getMoviesQuery = (query, cb) => {
 }
 
 let getPopularMovies = (cb) => {
-  Movies.find().limit(10).exec((err, movies) => {
+  Movies.find({}).sort( { popularity: -1 } ).limit(10).exec((err, movies) => {
     if (err) {
       console.error('Get movies error: ', err);
     } else {
@@ -186,6 +195,54 @@ let getPopularMovies = (cb) => {
     }
   })
 }
+
+let updateMoviesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) => {
+  try {
+    return Movies.findByIdAndUpdate({ _id : id}, {sentiment : { sentiment }, keywords : [keywords], entities : [ entities ], emotion : { emotion } } )
+    .then((movies) => {
+      console.log("movie id updated", movies)
+      return movies;
+    })
+    .catch((err) => {
+      console.log("error updating movies data", err);
+    })
+  }
+  catch(err) {
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.status(409).send(new MyError('Duplicate key', [err.message]));
+    }
+    res.status(500).send(new MyError('Unknown Server Error', ['Unknow server error when updating wines data ']));
+  }
+}
+
+let genreSchema = mongoose.Schema({
+  id : {type : Number, unique : true},
+  genre_name : Number
+})
+
+
+let MovieGenre = mongoose.model('MovieGenre', genreSchema);
+
+let saveMovieGenres =  (allgenres) => {
+  try {
+    MovieGenre.insertMany(allgenres)
+    .then((genre) => {
+      console.log("genres data saved to db", genre);
+    })
+    .catch((err) => {
+      console.log("error saving data to genre's collection", err)
+    })
+  }
+
+  catch(err) {
+    if (err.name === 'MongoError' && err.code === 11000) {
+      res.status(409).send(new MyError('Duplicate key', [err.message]));
+    }
+    res.status(500).send(err);
+  }
+
+}
+
 
 let userSchema = mongoose.Schema({
   id : {type : Number, unique : true},
@@ -231,3 +288,5 @@ module.exports.getMoviesQuery = getMoviesQuery;
 module.exports.getWinesQuery = getWinesQuery;
 module.exports.retrivePopularWines = retrivePopularWines;
 module.exports.getPopularMovies = getPopularMovies;
+module.exports.saveMovieGenres = saveMovieGenres;
+module.exports.updateMoviesWithAnalyzedData = updateMoviesWithAnalyzedData;

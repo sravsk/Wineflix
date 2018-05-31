@@ -7,6 +7,8 @@ const db = require('../database/index.js');
 const dotenv = require('dotenv').config();
 
 const movieService = require('../services/moviesFetcher.js');
+const movieGenreService = require('../services/moviesGenreFetcher.js');
+const moviesNLUService = require('../services/moviesNLU.js');
 
 const winesFetcherService = require('../services/winesFetcher.js');
 const winesNLUService = require('../services/winesNLU.js');
@@ -33,7 +35,6 @@ app.get('/api/winesFetcher', (req, res, next) => {
 
 app.get('/api/analyzeWines', (req, res, next) => {
   winesNLUService.winesNLU((results) => {
-      //res.json("data sent");
       if(results) {
         res.end();
       }
@@ -63,7 +64,6 @@ app.get('/api/moviesFetcher', (req, res) => {
 
 app.get('/moviedata', (req, res) => {
   db.getPopularMovies((movies) => {
-    //console.log('movies', movies)
     res.send(movies);
   })
 })
@@ -73,6 +73,22 @@ app.post('/moviedata', (req, res) => {
     res.send(movies);
   })
 })
+
+app.get('/api/genreFetcher', (req, res) => {
+  movieGenreService.fetchMovieGenre((data) => {
+    if(data) {
+      res.end();
+    }
+  })
+})
+
+app.get('/api/analyzeMovies', (req, res, next) => {
+  moviesNLUService.moviesNLU((results) => {
+      if(results) {
+        res.end();
+      }
+  })
+});
 
 
 app.use(session({
