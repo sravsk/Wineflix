@@ -1,17 +1,21 @@
 .img-logo {
-  width: 66%;
+  padding-right : 10px;
 }
 
-.navbar {
-  min-height : 120px;
-}
+.home_logo {
+  color: #fff;
+  font-size: 24px;
+  }
+
 
 .pull-right {
     margin-right: 50px;
 }
 
 .content{
-  min-height : 800px;
+  display: inline-block;
+  zoom: 1;
+  margin-top : 100px;
 }
 
 
@@ -28,10 +32,12 @@
 
 .fnd-wine-button {
   width: 200px;
-  background-color: #8d375d;
   line-height: 200px;
   display: block;
   text-align: center;
+  height: 200px;
+  border: 2px solid #ffffff;
+  margin-left: 50px;
 }
 
 .movie-block{
@@ -45,81 +51,20 @@
 
 .fnd-movie-button {
   width: 200px;
-  background-color: #8d375d;
   line-height: 200px;
   display: block;
   text-align: center;
-}
-
-.movie-block {
-  width: 200px;
-  float: left;
-}
-
-.fnd-movie-button {
   height: 200px;
-  width: 200px;
-  background-color: #8d375d;
+  border: 2px solid #ffffff;
+  margin-left: -50px;
 }
 
-.movie-block {
-  width: 200px;
-  float: left;
-}
 
-.fnd-movie-button {
-  height: 200px;
-  width: 200px;
-  background-color: #8d375d;
-}
-
-.movie-block {
-  width: 200px;
-  float: left;
-}
-
-.fnd-movie-button {
-  height: 200px;
-  width: 200px;
-  background-color: #8d375d;
-}
-
-.movie-block {
-  width: 200px;
-  float: left;
-}
-
-.fnd-movie-button {
-  height: 200px;
-  width: 200px;
-  background-color: #8d375d;
-}
-
-<<<<<<< HEAD
-.movie-block {
-  width: 200px;
-  float: left;
-}
-
-.fnd-movie-button {
-  height: 200px;
-  width: 200px;
-  background-color: #8d375d;
-}
-
-.movie-block {
-  width: 200px;
-  float: left;
-}
-
-.fnd-movie-button {
-  height: 200px;
-  width: 200px;
-  background-color: #8d375d;
-}
 
 .navbar {
   background-color : #8d375d;
+  border: none;
+  border-radius: 0;
  }
 
  .header .navbar-default a {
@@ -161,4 +106,30 @@
     width: 500px;
     border: 1px solid #8d375d;
 }
+
+#content-main {
+  min-height: 100vh;
+    padding: 30px 0;
+    text-align: center;
+    background: url(../assets/photo-background.jpg) no-repeat center;
+    background-size: cover;
+    margin: -20px 0;
+    border: none;
+ }
+
+ hr {
+    width: 80%;
+}
+
+footer {
+  background-color: #8d375d;
+}
+
+footer a {
+  color : #fff;
+ }
+
+ footer .text-center {
+  color : #fff;
+ }
 
