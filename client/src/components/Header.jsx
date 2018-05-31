@@ -8,9 +8,6 @@ const Header = (props) => {
     <Navbar>
      <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">
-              <img className="img-logo" src={logo}/>
-            </a>
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Collapse>
@@ -32,3 +29,5 @@ const Header = (props) => {
   }
 
 export default Header;
+
+
