@@ -179,14 +179,30 @@ footer a {
     margin-left: 0px;
     margin-bottom: 30px;
   }
+  .navbar {
+
+    background-color : #8d375d;
+    border: none;
+    border-radius: 0;
+  }
+
+  .header {
+    width: 100%;
+    color: #fff !important;
+    font-size: 18px;
+  }
 
   footer {
-  background-color: #8d375d;
+    position: relative;
+    margin-top: -180px;
+    /* negative value of footer height */
+    height: 180px;
+    clear: both;
   }
 
   footer a {
     color : #fff;
-   }
+  }
 
   footer .text-center {
     color : #fff;
