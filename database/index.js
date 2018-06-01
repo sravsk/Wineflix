@@ -276,7 +276,28 @@ let saveUser = (username, password) => {
 
 }
 
+/////PAIRINGS WORKSHOP
+//////todo: export and reorder these nicely once they're finalized
 
+//Pairing collection - stores all pairings
+let pairingSchema = mongoose.Schema({
+  id : {type : Number, unique : true},
+  movie_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Movies'},
+  wine_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Wines'}
+});
+
+let Pairings = mongoose.model('Pairings', pairingSchema);
+
+
+
+//My Pairing collection - stores one user's pairings
+let myPairingSchema = mongoose.Schema({
+  id : {type : Number, unique : true},
+  pairing_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Pairings'},
+  rating: {type: Boolean}
+});
+
+let MyPairings = mongoose.model('myPairings', pairingSchema);
 
 module.exports.saveWines = saveWines;
 module.exports.saveMovies = saveMovies;
@@ -291,29 +312,3 @@ module.exports.retrivePopularWines = retrivePopularWines;
 module.exports.getPopularMovies = getPopularMovies;
 module.exports.saveMovieGenres = saveMovieGenres;
 module.exports.updateMoviesWithAnalyzedData = updateMoviesWithAnalyzedData;
-
-
-
-/////PAIRINGS WORKSHOP
-//////todo: export and reorder these nicely once they're finalized
-
-//Pairing collection - stores all pairings
-let pairingSchema = mongoose.Schema({
-  id : {type : Number, unique : true},
-  movie_id: {type: Schema.Types.ObjectId, ref: 'Movies'},
-  wine_id: {type: Schema.Types.ObjectId, ref: 'Wines'}
-});
-
-let Pairings = mongoose.model('Pairings', pairingSchema);
-
-
-
-//My Pairing collection - stores one user's pairings
-let myPairingSchema = mongoose.Schema({
-  id : {type : Number, unique : true},
-  pairing_id: {type: Schema.Types.ObjectId, ref: 'Pairings'},
-  rating: {type: Boolean}
-});
-
-let MyPairings = mongoose.model('myPairings', pairingSchema);
-

@@ -4,8 +4,8 @@ const MongoDB = require('../database/index.js');
 
 
 let fetchMovies = (cb) => {
-  var maxPage = 140
-  for(let i = 115; i < maxPage; i++) {
+  var maxPage = 35
+  for(let i = 1; i < maxPage; i++) {
     var options = {
       method: 'GET',
       url: 'https://api.themoviedb.org/3/discover/movie',
