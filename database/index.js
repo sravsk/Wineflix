@@ -120,6 +120,17 @@ let retrivePopularWines = (cb) => {
   }
 }
 
+let getWine = (wineID, cb) => {
+  Wines.find({id : wineID}, (err, wine) => {
+    if(err) {
+      console.error('error retriving wine data', err);
+    } else {
+      console.log("wine data in db", wineID);
+      cb(wine);
+    }
+  });
+}
+
 
 let movieSchema = mongoose.Schema({
   vote_count: Number,
@@ -215,9 +226,21 @@ let updateMoviesWithAnalyzedData = (id, sentiment, keywords, entities,emotion) =
   }
 }
 
+let getMovieSuggestions = (cb) => {
+  Movies.find({}, (err, movies) => {
+    if (err) {
+      console.error('Get movie query error: ', err);
+    } else {
+      cb(movies);
+    }
+  })
+}
+
+
+
 let genreSchema = mongoose.Schema({
   id : {type : Number, unique : true},
-  genre_name : Number
+  name : String
 })
 
 
@@ -312,3 +335,5 @@ module.exports.retrivePopularWines = retrivePopularWines;
 module.exports.getPopularMovies = getPopularMovies;
 module.exports.saveMovieGenres = saveMovieGenres;
 module.exports.updateMoviesWithAnalyzedData = updateMoviesWithAnalyzedData;
+module.exports.getMovieSuggestions = getMovieSuggestions;
+module.exports.getWine = getWine;

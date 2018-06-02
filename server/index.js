@@ -90,6 +90,45 @@ app.get('/api/analyzeMovies', (req, res, next) => {
   })
 });
 
+app.post('/suggestMovies', (req, res) => {
+  var wineScore = JSON.parse(Object.keys(req.body));
+  var wineScoreRound = Math.round(wineScore * 100) / 100;
+  var results = [];
+  db.getMovies().then((moviesData) => {
+    for(var i =0; i < moviesData.length; i++) {
+      var movieScore = moviesData[i].sentiment.sentiment.document.score;
+      var movieScoreRound = Math.round(movieScore * 100) / 100;
+      if(movieScoreRound === wineScoreRound) {
+        results.push(moviesData[i])
+      }
+    }
+    res.send(results);
+  })
+});
+
+app.get('/wineItem', (req, res) => {
+   var wineID = req.query.q;
+  db.getWine(wineID, (result) => {
+    res.send(result);
+  })
+})
+
+
+app.post('/suggestWines', (req, res) => {
+  var movieScore = JSON.parse(Object.keys(req.body));
+  var movieScoreRound = Math.round(movieScore * 100) / 100;
+  var results = [];
+  db.retriveWines().then((winesData) => {
+    for(var i =0; i < winesData.length; i++) {
+      var wineScore = winesData[i].sentiment.sentiment.document.score;
+      var wineScoreRound = Math.round(wineScore * 100) / 100;
+      if(Math.abs(wineScoreRound) === Math.abs(movieScoreRound)) {
+        results.push(winesData[i])
+      }
+    }
+    res.send(results);
+  })
+});
 
 app.use(session({
   secret: 'asdf',

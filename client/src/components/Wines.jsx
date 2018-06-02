@@ -50,6 +50,8 @@ class Wines extends React.Component {
         <SearchWines onSearch={this.handleSearch}/>
         {/*<SidebarWines wines={winesData}/>*/}
         <PopulateWines wines={this.state.wines}/>
+
+
       </Grid>
     )
   }

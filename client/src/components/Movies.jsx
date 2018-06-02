@@ -48,7 +48,6 @@ class Movies extends React.Component {
     return(
       <Grid>
         <SearchMovies onSearch={this.handleSearch}/>
-        {/*<SidebarMovies movies={moviesData}/>*/}
         <PopulateMovies movies={this.state.movies}/>
       </Grid>
     )
