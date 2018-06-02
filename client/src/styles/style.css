@@ -1,5 +1,5 @@
 .img-logo {
-  padding-right : 10px;
+  /*padding-right : 10px;*/
 }
 
 .home_logo {
@@ -123,7 +123,14 @@
 
 footer {
   background-color: #8d375d;
+  position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
 }
+
+
 
 footer a {
   color : #fff;
@@ -138,16 +145,111 @@ footer a {
   text-align: center;
 }
 
+.col-desktop{
+    display: block;
+  }
+
+.col-responsive{
+    display: none;
+  }
+
 @media only screen and (max-device-width: 480px) {
 
   #app {
     width: 100%;
   }
+
   #content-main {
     min-height: 100vh;
     width: 100%;
-    padding: 30px 0;
+    padding: 0 0 0 0;
     background: url(../assets/photo-background.jpg) no-repeat center;
     background-size: cover;
    }
+
+  .img-logo {
+    width: 100%;
+    padding-left: 10px;
+   }
+
+  .content{
+    margin-top: 20px;
+    text-align: center;
+   }
+
+  .wine-block, .movie-block {
+    width: 200px;
+    float: none;
+    color: #FFF;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .fnd-wine-button, .fnd-movie-button {
+    width: 240px;
+    line-height: 100px;
+    display: block;
+    text-align: center;
+    height: 100px;
+    border: 2px solid #ffffff;
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+  .navbar {
+
+    background-color : #8d375d;
+    border: none;
+    border-radius: 0;
+  }
+
+  .header {
+    width: 100%;
+    color: #fff !important;
+    font-size: 18px;
+  }
+
+  footer {
+   position:fixed;
+   bottom:0;
+   width:100%;
+   height:120px;   /* Height of the footer */
+  }
+
+  footer a {
+    color : #fff;
+  }
+
+  footer .text-center {
+    color : #fff;
+  }
+
+  .input-search {
+    width: 100%;
+  }
+
+  .wine-image {
+
+  }
+
+  .thumbnail {
+    width: 60%;
+  }
+
+  .wine-name-responsive {
+    display: block;
+  }
+
+  .responsive-list {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .col-desktop{
+    display: none;
+  }
+
+  .col-responsive{
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+  }
 }

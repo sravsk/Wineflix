@@ -7,7 +7,7 @@ const PopulateWines = (props) => {
     <Grid>
       {props.wines.map((wine) => (
         <Row key={wine.id}>
-          <div>
+          <div className = "col-desktop">
             <Col xs={6} md={4}>
               <Thumbnail src={wine.image_thumb_url}/>
             </Col>
@@ -27,6 +27,20 @@ const PopulateWines = (props) => {
             </Col>
             <Col xs={6} md={4}>
               <br/>
+              <Well bsSize="small">{wine.description}</Well>
+            </Col>
+          </div>
+          <div className="col-responsive">
+            <h3 className={"wine-name-responsive"}>{wine.name}</h3>
+            <Col xs={6} md={4}>
+              <Thumbnail src={wine.image_thumb_url}/>
+            </Col>
+            <Col xs={6} md={4}>
+              <div>{wine.producer_name}</div>
+              <div>{wine.secondary_category}</div>
+              <Button className={"suggest-movies"}>Suggest Movies</Button>
+            </Col>
+            <Col xs={6} md={4} className={"responsive-list"}>
               <Well bsSize="small">{wine.description}</Well>
             </Col>
           </div>

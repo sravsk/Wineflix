@@ -7,7 +7,7 @@ const PopulateMovies = (props) => {
     <Grid>
       {props.movies.map((movie) => (
         <Row key={movie.id}>
-          <div>
+          <div className = "col-desktop">
             <Col xs={6} md={4}>
               <Thumbnail src={`http://image.tmdb.org/t/p/original${movie.poster_path}`}/>
             </Col>
@@ -27,6 +27,21 @@ const PopulateMovies = (props) => {
             </Col>
             <Col xs={6} md={4}>
               <br/>
+              <Well bsSize="small">{movie.overview}</Well>
+            </Col>
+          </div>
+          <div className = "col-responsive">
+              <h3>{movie.title}</h3>
+            <Col xs={6} md={4}>
+              <Thumbnail src={`http://image.tmdb.org/t/p/original${movie.poster_path}`}/>
+            </Col>
+            <Col xs={6} md={4}>
+              <div>Rating: {movie.vote_average}</div>
+              <div>Votes: {movie.vote_count}</div>
+              <div>Released: {movie.release_date}</div>
+              <Button className={"suggest-wines"}>Suggest Wines</Button>
+            </Col>
+            <Col xs={6} md={4} className={"responsive-list"}>
               <Well bsSize="small">{movie.overview}</Well>
             </Col>
           </div>
