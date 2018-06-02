@@ -145,6 +145,7 @@ footer a {
   text-align: center;
 }
 
+<<<<<<< HEAD
 .col-desktop{
     display: block;
   }
@@ -253,3 +254,178 @@ footer a {
     padding-bottom: 20px;
   }
 }
+
+.wine-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+}
+
+
+.wine-varietal-span {
+text-transform: uppercase;
+    color: #707070;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 320;
+    line-height: 2.0;
+    text-align: left;
+}
+
+.wine-varietal-div {
+      color: #cb4977;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.producer-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+}
+
+
+.wine-producer-span {
+text-transform: uppercase;
+    color: #707070;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 320;
+    line-height: 2.0;
+    text-align: left;
+}
+
+.wine-producer-div {
+      color: #cb4977;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.primary_category {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+}
+
+
+.wine-primary_category-span {
+text-transform: uppercase;
+    color: #707070;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 320;
+    line-height: 2.0;
+    text-align: left;
+}
+
+.wine-primary_category-div {
+      color: #cb4977;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.wine-description-span {
+text-transform: uppercase;
+   color: #cb4977;
+    font-size: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 320;
+    line-height: 2.0;
+    text-align: left;
+}
+
+.wine-description-div {
+
+      color : #707070;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0px;
+}
+
+.suggestedMovies-list {
+
+    margin: 70px;
+}
+
+.suggestedMovie-thumbnail {
+  width : 100%;
+}
+
+.suggested-movies-btn {
+      color: #fff;
+    background-color: #cb4977;
+    border-color: #ccc;
+    padding : 10px;
+    margin-bottom: 30px;
+}
+
+.suggestedMovieTitle {
+  font-size: 20px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+ }
+
+ .suggestedMovieVotes {
+  font-size: 16px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+ }
+
+ .suggestedMovieRating {
+  font-size: 16px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+ }
+
+ .suggestedMovieDate {
+  font-size: 16px;
+    font-weight: 400;
+    line-height: 1.44;
+    letter-spacing: 0.2px;
+    color: #545454;
+ }
+
+ .movie-thumbnail {
+  width : 70%;
+      margin-left: 100px;
+ }
+
+ .site-logo {
+  color : #FFF;
+ }
+

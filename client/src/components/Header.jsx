@@ -8,6 +8,7 @@ const Header = (props) => {
     <Navbar>
      <Navbar.Header>
           <Navbar.Brand>
+            <a className="site-logo" href="/">Wineflix!</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Collapse>

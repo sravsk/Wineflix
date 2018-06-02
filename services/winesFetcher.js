@@ -4,7 +4,7 @@ const MongoDB = require('../database/index.js');
 
 
 let fetchWines = (cb) => {
-  var maxPage = 60
+  var maxPage = 15
   for(let i = 1; i < maxPage; i++) {
     let options = {
       uri : 'https://lcboapi.com/products?q=wine&per_page=99&page=' + i + '&access_key=' + process.env.ACCESS_KEY,
