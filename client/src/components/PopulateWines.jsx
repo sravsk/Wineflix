@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col, Well, Thumbnail, Button} from 'react-bootstrap';
 import PopulateWineItem from './PopulateWineItem.jsx';
-import WineItem from './WineItem.jsx';
 import { Switch , Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
