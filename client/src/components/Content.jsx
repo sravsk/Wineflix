@@ -3,12 +3,12 @@ import Wines from './Wines.jsx';
 import Movies from './Movies.jsx';
 import { Grid } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-const logo = require ('../assets/classygazelles_small.png');
+const logo = require ('../assets/wineflixlogosmall.png');
 
 const Content = (props) => {
   return (
         <div id="content-main">
-        <div className="home_logo"> <img className="img-logo" src={logo}/>Welcome to Wineflix!</div><hr/>
+        <div className="home_logo"> <img className="img-logo" src={logo}/></div><hr/>
           <div className="content">
             <Link className="wine-block" to="/wines">
               <div className="fnd-wine-button">Find a Wine</div>
