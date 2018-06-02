@@ -40,24 +40,23 @@ class PopulateWineItem extends React.Component {
             <Col xs={6} md={4}>
               <Thumbnail src={this.props.wine.image_thumb_url}/>
             </Col>
-            <Col xs={6} md={4}>
-              <div>{this.props.wine.name}</div>
-              <Button className="suggested-movies-btn" onClick={this.suggestMovies}>Suggested Movies</Button>
+            <Col xs={8} md={6}>
+              <div className="wine-name">{this.props.wine.name}</div>
+            </Col>
+            <Col xs={6} md={4}><div className="wine-varietal"><span className="wine-varietal-span">Grape Type OR Blend  </span><div className="wine-varietal-div">{this.props.wine.varietal}</div></div>
             </Col>
             <Col xs={6} md={4}>
-              <div>{this.props.wine.producer_name}</div>
-
+            <div className="wine-producer"><span className="wine-producer-span">Producer </span><div className="wine-producer-div">{this.props.wine.producer_name}</div></div>
             </Col>
             <Col xs={6} md={4}>
-              <div>{this.props.wine.primary_category}</div>
+             <div className="primary_category"><span className="wine-primary_category-span">Category </span><div className="wine-primary_category-div">{this.props.wine.primary_category}</div></div>
+             </Col>
+             <Col xs={8} md={6}>
+             <Well bsSize="small"><span className="wine-description-span">Description </span><div className="wine-description-div">{this.props.wine.description}</div></Well>
             </Col>
-            <Col xs={6} md={4}>
-              <div>{this.props.wine.secondary_category}</div>
-            </Col>
-            <Col xs={6} md={4}>
-              <br/>
-              <Well bsSize="small">{this.props.wine.description}</Well>
-            </Col>
+             <Col xs={8} md={6}>
+             <Button className="suggested-movies-btn" onClick={this.suggestMovies}>Suggested Movies</Button>
+             </Col>
           </div>
           <div className="col-responsive">
             <h3 className={"wine-name-responsive"}>{this.props.wine.name}</h3>
@@ -104,27 +103,3 @@ class PopulateWineItem extends React.Component {
 }
 
 export default PopulateWineItem;
-
-
-      // <div>
-      //         <Col xs={6} md={4}>
-      //           <Thumbnail src={this.props.wine.image_thumb_url}/>
-      //         </Col>
-      //         <Col xs={8} md={6}>
-      //           <div className="wine-name">{this.props.wine.name}</div>
-      //         </Col>
-      //         <Col xs={6} md={4}><div className="wine-varietal"><span className="wine-varietal-span">Grape Type OR Blend  </span><div className="wine-varietal-div">{this.props.wine.varietal}</div></div>
-      //         </Col>
-      //         <Col xs={6} md={4}>
-      //         <div className="wine-producer"><span className="wine-producer-span">Producer </span><div className="wine-producer-div">{this.props.wine.producer_name}</div></div>
-      //         </Col>
-      //         <Col xs={6} md={4}>
-      //          <div className="primary_category"><span className="wine-primary_category-span">Category </span><div className="wine-primary_category-div">{this.props.wine.primary_category}</div></div>
-      //          </Col>
-      //          <Col xs={8} md={6}>
-      //          <Well bsSize="small"><span className="wine-description-span">Description </span><div className="wine-description-div">{this.props.wine.description}</div></Well>
-      //         </Col>
-      //          <Col xs={8} md={6}>
-      //          <Button className="suggested-movies-btn" onClick={this.suggestMovies}>Suggested Movies</Button>
-      //          </Col>
-      //       </div>

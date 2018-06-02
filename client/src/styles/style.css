@@ -124,9 +124,9 @@
 footer {
   background-color: #8d375d;
   position: relative;
-  margin-top: -180px;
+  /*margin-top: -180px;*/
   /* negative value of footer height */
-  height: 180px;
+  /*height: 180px;*/
   clear: both;
 }
 
