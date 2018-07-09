@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Well, Thumbnail, Button} from 'react-bootstrap';
+import { Grid, Row, Col, Well, Thumbnail, Button,  Modal} from 'react-bootstrap';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
@@ -10,9 +10,12 @@ class PopulateWineItem extends React.Component {
     this.state = {
       wine : this.props.wine,
       score : this.props.wine.sentiment.sentiment.document.score,
-      movies : []
+      movies : [],
+      show : false
     }
     this.suggestMovies = this.suggestMovies.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
 
@@ -31,6 +34,15 @@ class PopulateWineItem extends React.Component {
       }
     })
   }
+
+   handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
 
   render() {
     return(
@@ -88,6 +100,15 @@ class PopulateWineItem extends React.Component {
                           <div className="suggestedMovieVotes"><span>Votes : </span>{movie.vote_count}</div>
                            <div className="suggestedMovieRating"><span>Rating : </span>{movie.vote_average}</div>
                            <div className="suggestedMovieDate"><span>Release Date : </span>{movie.release_date}</div>
+                           <Button bsSize="small" className="pick-wine"onClick={this.handleShow}>Pick this wine</Button>
+                           <Modal show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Body>
+                            <h4>Congratulations!</h4>
+                             <p>
+                              You have picked 'Stars wars' movie, click <a className="pairings-link"href="/pairings">here</a> to view your pairings
+                            </p>
+                            </Modal.Body>
+                        </Modal>
                         </Col>
                       </Row>
                         )

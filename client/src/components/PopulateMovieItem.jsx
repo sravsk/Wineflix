@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Well, Thumbnail, Button} from 'react-bootstrap';
+import { Grid, Row, Col, Well, Thumbnail, Button, Modal, OverlayTrigger, popover} from 'react-bootstrap';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
@@ -10,9 +10,13 @@ class PopulateMovieItem extends React.Component {
     this.state = {
       movie : this.props.movie,
       score : this.props.movie.sentiment.sentiment.document.score,
-      wines : []
+      wines : [],
+      show : false
     }
     this.suggestWines = this.suggestWines.bind(this);
+     this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
   }
 
   suggestWines(score) {
@@ -28,6 +32,15 @@ class PopulateMovieItem extends React.Component {
       }
     })
   }
+
+   handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
 
   render() {
     return(
@@ -87,6 +100,15 @@ class PopulateMovieItem extends React.Component {
                           <div className="suggestedMovieTitle">{wine.name}</div>
                           <div className="suggestedMovieVotes"><span>Producer : </span>{wine.producer_name}</div>
                           <div className="suggestedMovieRating"><span>Grape Type OR Blend : </span>{wine.varietal}</div>
+                          <Button bsSize="small" className="pick-wine"onClick={this.handleShow}>Pick this wine</Button>
+                           <Modal show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Body>
+                            <h4>Congratulations!</h4>
+                             <p>
+                              You have picked 'Villa Maria Cellar Selection Sauvignon Blanc 2017' wine, click <a className="pairings-link"href="/pairings">here</a> to view your pairings
+                            </p>
+                            </Modal.Body>
+                        </Modal>
                         </Col>
                       </Row>
                       )

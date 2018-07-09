@@ -78,7 +78,6 @@
  }
 
  a:hover, a:visited {
-  color : #FFF;
   text-decoration : none;
  }
 
@@ -427,5 +426,17 @@ text-transform: uppercase;
 
  .site-logo {
   color : #FFF;
+ }
+
+ .pairings-link a {
+
+ }
+
+ .pick-wine {
+  color: #fff;
+    background-color: #cb4977;
+    border-color: #ccc;
+    padding: 10px;
+    margin: 20px 0;
  }
 

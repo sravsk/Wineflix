@@ -3,7 +3,10 @@ const dotenv = require('dotenv').config();
 
 const ObjectId = mongoose.Types.ObjectId;
 
-mongoose.connect('mongodb://localhost/wines-movies');
+//mongoose.connect('mongodb://localhost/wines-movies');
+
+const dbconnection = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_SERVER}?authMechanism=SCRAM-SHA-1` || 'mongodb://localhost/fetcher'
+mongoose.connect(dbconnection);
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'db connection error'));
