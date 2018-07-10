@@ -30,7 +30,7 @@ database/data/
 
 
 # dotenv environment variables file
-.env
+#.env
 
 #DS_Store banish
 client/.DS_Store
