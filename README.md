@@ -26,6 +26,7 @@
 - Node.js
 - Express
 - React
+- Mongodb
 
 ## Development
 
