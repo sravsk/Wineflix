@@ -3,8 +3,8 @@ const MongoDB = require('../database/index.js');
 const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
 var nlu = new NaturalLanguageUnderstandingV1({
-  username: process.env.username,
-  password: process.env.password,
+  username: process.env.username || '505e2152-356e-40b0-af00-fa6bd80f2b52',
+  password: process.env.password || 'G1v8mwTQZW5y',
    version_date: '2018-03-16'
  });
 
