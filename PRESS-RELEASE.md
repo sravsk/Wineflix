@@ -44,4 +44,4 @@ Once the project moves into development, the press release can be used as a touc
   -Anonymous, Academy of Motion Pictures Arts and Sciences
 
 ## Closing and Call to Action ##
-  A new viewing and sipping experience awaits with Wineflix! Look up our app and try it for yourself. Please drink responsibly. Must be 21 or over to enjoy. Do not drive under the influence of alcohol. Don't watch movies while driving either.
+  A new viewing and sipping experience awaits with Wineflix! Look up our app and try it for yourself. Please drink responsibly. Must be 21 or over to enjoy. Do not drive under the influence of alcohol. Please don't watch movies while driving either.
