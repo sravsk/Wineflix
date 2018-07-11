@@ -10,9 +10,9 @@ mongoose.connect(dbconnection);
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'db connection error'));
-db.once('open', function(){
-  console.log('wines-movies db connected');
-});
+// db.once('open', function(){
+//   console.log('wines-movies db connected');
+// });
 
 
 
