@@ -9,6 +9,6 @@ hooks:
       runas: root
       timeout: 300
   ApplicationStart:
-    - location: /var/www/html/wineflix/scripts/npm-start.sh > /dev/null 2> /dev/null < /dev/null &
+    - location: /var/www/html/wineflix/scripts/npm-start.sh > /dev/null 2>&1 &
       runas: root
       timeout: 600
