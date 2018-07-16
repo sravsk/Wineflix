@@ -1,3 +1,4 @@
-source /home/ec2-user/.bash_profile
+#!/bin/bash
 cd /var/www/html/wineflix
-sudo /home/ec2-user/.nvm/versions/node/v8.11.3/bin/npm start
+sudo npm start
+echo "ec2 instance started"
