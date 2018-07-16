@@ -408,15 +408,15 @@ text-transform: uppercase;
 
  .suggestedMovieDate {
   font-size: 16px;
-    font-weight: 400;
-    line-height: 1.44;
-    letter-spacing: 0.2px;
-    color: #545454;
+  font-weight: 400;
+  line-height: 1.44;
+  letter-spacing: 0.2px;
+  color: #545454;
  }
 
  .movie-thumbnail {
   width : 70%;
-      margin-left: 100px;
+  margin-left: 100px;
  }
 
  .site-logo {
