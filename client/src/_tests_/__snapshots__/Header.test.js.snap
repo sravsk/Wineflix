@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    class="header"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "bsStyle": "default",
+      "children": Array [
+        <NavbarHeader>
+          <NavbarBrand>
+            <a
+              className="site-logo"
+              href="/"
+            >
+              Wineflix!
+            </a>
+          </NavbarBrand>
+        </NavbarHeader>,
+        <NavbarCollapse>
+          <Nav
+            bsClass="nav"
+            justified={false}
+            pullLeft={false}
+            pullRight={true}
+            stacked={false}
+          >
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey={1}
+              href="signup"
+            >
+              Create account
+            </NavItem>
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey={2}
+              href="login"
+            >
+              Login
+            </NavItem>
+          </Nav>
+        </NavbarCollapse>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <NavbarBrand>
+            <a
+              className="site-logo"
+              href="/"
+            >
+              Wineflix!
+            </a>
+          </NavbarBrand>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <a
+              className="site-logo"
+              href="/"
+            >
+              Wineflix!
+            </a>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Wineflix!",
+              "className": "site-logo",
+              "href": "/",
+            },
+            "ref": null,
+            "rendered": "Wineflix!",
+            "type": "a",
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Nav
+            bsClass="nav"
+            justified={false}
+            pullLeft={false}
+            pullRight={true}
+            stacked={false}
+          >
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey={1}
+              href="signup"
+            >
+              Create account
+            </NavItem>
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey={2}
+              href="login"
+            >
+              Login
+            </NavItem>
+          </Nav>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "bsClass": "nav",
+            "children": Array [
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={1}
+                href="signup"
+              >
+                Create account
+              </NavItem>,
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={2}
+                href="login"
+              >
+                Login
+              </NavItem>,
+            ],
+            "justified": false,
+            "pullLeft": false,
+            "pullRight": true,
+            "stacked": false,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "active": false,
+                "children": "Create account",
+                "disabled": false,
+                "eventKey": 1,
+                "href": "signup",
+              },
+              "ref": null,
+              "rendered": "Create account",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "active": false,
+                "children": "Login",
+                "disabled": false,
+                "eventKey": 2,
+                "href": "login",
+              },
+              "ref": null,
+              "rendered": "Login",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "bsStyle": "default",
+        "children": Array [
+          <NavbarHeader>
+            <NavbarBrand>
+              <a
+                className="site-logo"
+                href="/"
+              >
+                Wineflix!
+              </a>
+            </NavbarBrand>
+          </NavbarHeader>,
+          <NavbarCollapse>
+            <Nav
+              bsClass="nav"
+              justified={false}
+              pullLeft={false}
+              pullRight={true}
+              stacked={false}
+            >
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={1}
+                href="signup"
+              >
+                Create account
+              </NavItem>
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={2}
+                href="login"
+              >
+                Login
+              </NavItem>
+            </Nav>
+          </NavbarCollapse>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <NavbarBrand>
+              <a
+                className="site-logo"
+                href="/"
+              >
+                Wineflix!
+              </a>
+            </NavbarBrand>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <a
+                className="site-logo"
+                href="/"
+              >
+                Wineflix!
+              </a>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Wineflix!",
+                "className": "site-logo",
+                "href": "/",
+              },
+              "ref": null,
+              "rendered": "Wineflix!",
+              "type": "a",
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Nav
+              bsClass="nav"
+              justified={false}
+              pullLeft={false}
+              pullRight={true}
+              stacked={false}
+            >
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={1}
+                href="signup"
+              >
+                Create account
+              </NavItem>
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey={2}
+                href="login"
+              >
+                Login
+              </NavItem>
+            </Nav>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bsClass": "nav",
+              "children": Array [
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey={1}
+                  href="signup"
+                >
+                  Create account
+                </NavItem>,
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey={2}
+                  href="login"
+                >
+                  Login
+                </NavItem>,
+              ],
+              "justified": false,
+              "pullLeft": false,
+              "pullRight": true,
+              "stacked": false,
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "active": false,
+                  "children": "Create account",
+                  "disabled": false,
+                  "eventKey": 1,
+                  "href": "signup",
+                },
+                "ref": null,
+                "rendered": "Create account",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "active": false,
+                  "children": "Login",
+                  "disabled": false,
+                  "eventKey": 2,
+                  "href": "login",
+                },
+                "ref": null,
+                "rendered": "Login",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
