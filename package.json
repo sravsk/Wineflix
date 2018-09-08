@@ -7,7 +7,11 @@
     "test-jest": "jest client/src/",
     "jest": "jest",
     "react-dev": "webpack -d --watch",
-    "start": "node server/index.js"
+    "start": "webpack && node server/index.js",
+    "pre-start": "node node_modules/webpack/bin/webpack.js",
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./build/index.bundle.js",
+    "compile": "NODE_ENV=production webpack --config ./webpack.config.js --progress"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>client/src/_tests_/jest.config.jsx",
