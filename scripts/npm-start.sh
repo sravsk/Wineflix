@@ -1,4 +1,3 @@
 #!/bin/bash
-cd /var/www/html/wineflix
-sudo npm start
+pm2 start webpack && /var/www/html/wineflix/server/index.js
 echo "ec2 instance started"
